@@ -42,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         val navigationButton = findViewById<Button>(R.id.btn_nav)
 
         val seekBar = findViewById<SeekBar>(R.id.seekBar)
+        var startPoint = 0
+        var endPoint = 0
         val outputResult3 = findViewById<TextView>(R.id.result_3)
 
 
@@ -58,9 +60,26 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        seekBar.setOnClickListener{
-            outputResult3.text = sum(inputValue1.text.toString(),inputValue2.text.toString())
-        }
+
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                outputResult3.text = "10"
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {
+                if(seekBar != null){
+                   startPoint = seekBar.progress
+                }
+            }
+
+            override fun onStopTrackingTouch(p0: SeekBar?) {
+                if(seekBar != null){
+                    startPoint = seekBar.progress
+                }
+            }
+
+        })
+
 
     }
 
