@@ -10,6 +10,19 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
 
 
+    private fun sum(a: String, b: String) : String{
+        var result: Int? = 0
+
+        result = 0
+        if(a.toIntOrNull() != null){
+            result = result?.plus(a.toInt())
+        }
+        if(b.toIntOrNull() != null){
+            result = result?.plus(b.toInt())
+        }
+
+        return result.toString()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,25 +30,21 @@ class MainActivity : AppCompatActivity() {
 
         val inputValue1 = findViewById<EditText>(R.id.value_1)
         val inputValue2 = findViewById<EditText>(R.id.value_2)
-        var result: Int? = 0
+
         val calculateButton = findViewById<Button>(R.id.btn_calculate)
         val outputResult1 = findViewById<TextView>(R.id.result_1)
         val navigationButton = findViewById<Button>(R.id.btn_nav)
         val outputResult2 = findViewById<TextView>(R.id.result_2)
 
         calculateButton.setOnClickListener {
+            outputResult1.text = sum(inputValue1.text.toString(),inputValue2.text.toString())
+        }
 
-
-            result = 0
-            if(inputValue1.text.toString().toIntOrNull() != null){
-                result = result?.plus(inputValue1.text.toString().toInt())
-            }
-            if(inputValue2.text.toString().toIntOrNull() != null){
-                result = result?.plus(inputValue2.text.toString().toInt())
-            }
-
-            outputResult1.text = result.toString()
+        navigationButton.setOnClickListener {
+            outputResult2.text = sum(inputValue1.text.toString(),inputValue2.text.toString())
         }
 
     }
+
+
 }
