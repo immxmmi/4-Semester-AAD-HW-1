@@ -35,7 +35,10 @@
             android:id="@+id/result_1"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="@string/value_0" />
+            android:text="@string/value_0"
+            android:textSize="50px"
+            android:textColor="@color/green"
+            />
 
         <Button
             android:id="@+id/btn_nav"
@@ -49,9 +52,12 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/result_2"
+            android:id="@+id/result_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/value_0" />
+            android:text="@string/value_0"
+            android:textSize="50px"
+            android:textColor="@color/green"
+            />
 
 </LinearLayout>

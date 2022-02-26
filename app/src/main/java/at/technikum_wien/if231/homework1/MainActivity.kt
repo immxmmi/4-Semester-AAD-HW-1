@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.widget.Button
 import android.widget.EditText
+import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -39,7 +40,9 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(this, SecoundActivity :: class.java)
         val navigationButton = findViewById<Button>(R.id.btn_nav)
-        val outputResult2 = findViewById<TextView>(R.id.result_2)
+
+        val seekBar = findViewById<SeekBar>(R.id.seekBar)
+        val outputResult3 = findViewById<TextView>(R.id.result_3)
 
 
 
@@ -53,6 +56,10 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("result", result)
 
             startActivity(intent)
+        }
+
+        seekBar.setOnClickListener{
+            outputResult3.text = sum(inputValue1.text.toString(),inputValue2.text.toString())
         }
 
     }
