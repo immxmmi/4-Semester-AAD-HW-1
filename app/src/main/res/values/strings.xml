@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Homework 1</string>
+    <string name="name">Mahmoud Ismail</string>
+    <string name="btn_calculate">Calculate</string>
+    <string name="value_1">0</string>
+    <string name="value_0">0</string>
+    <string name="btn_nav">Navigate</string>
 </resources>
