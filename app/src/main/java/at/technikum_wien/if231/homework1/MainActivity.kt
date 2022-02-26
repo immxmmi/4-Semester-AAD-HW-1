@@ -1,11 +1,14 @@
 package at.technikum_wien.if231.homework1
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,15 +36,23 @@ class MainActivity : AppCompatActivity() {
 
         val calculateButton = findViewById<Button>(R.id.btn_calculate)
         val outputResult1 = findViewById<TextView>(R.id.result_1)
+
+        val intent = Intent(this, SecoundActivity :: class.java)
         val navigationButton = findViewById<Button>(R.id.btn_nav)
         val outputResult2 = findViewById<TextView>(R.id.result_2)
+
+
 
         calculateButton.setOnClickListener {
             outputResult1.text = sum(inputValue1.text.toString(),inputValue2.text.toString())
         }
 
         navigationButton.setOnClickListener {
-            outputResult2.text = sum(inputValue1.text.toString(),inputValue2.text.toString())
+
+            var result =  sum(inputValue1.text.toString(),inputValue2.text.toString())
+            intent.putExtra("result", result)
+
+            startActivity(intent)
         }
 
     }
