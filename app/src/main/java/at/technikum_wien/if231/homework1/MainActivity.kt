@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity() {
         val inputValue2 = findViewById<EditText>(R.id.value_2)
 
 
-        var startPoint = 0
-        var endPoint = 0
 
 
         // CALCULATE
@@ -59,22 +57,25 @@ class MainActivity : AppCompatActivity() {
         }
 
         // SEEKBAR
-        val seekBar = findViewById<SeekBar>(R.id.seekBar)
+        val slider = findViewById<SeekBar>(R.id.sb_slider)
+        slider.max = 100
         val outputSeekBar = findViewById<TextView>(R.id.result_seekBar)
-        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
-            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                outputSeekBar.text = sum(inputValue1.text.toString(),inputValue2.text.toString())
+
+        slider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+
+            override fun onProgressChanged(seekBar: SeekBar?, p1: Int, p2: Boolean) {
+                outputSeekBar.text = "current value: " + p1.toString()
             }
 
-            override fun onStartTrackingTouch(p0: SeekBar?) {
-                if(seekBar != null){
-                   startPoint = 0
-                }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                    if (seekBar != null) {
+                        outputSeekBar.text = "start value: " + seekBar.progress
+                    }
             }
 
-            override fun onStopTrackingTouch(p0: SeekBar?) {
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
                 if(seekBar != null){
-                    endPoint = 0
+                    outputSeekBar.text = "selected " + seekBar.progress
                 }
                 
                // Toast.makeText(this)
