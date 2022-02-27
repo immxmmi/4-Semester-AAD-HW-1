@@ -10,7 +10,7 @@ class SecoundActivity() : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_secound)
 
-        val outputResult2 = findViewById<TextView>(R.id.result_2)
+        val outputResult2 = findViewById<TextView>(R.id.result_nav)
         outputResult2.text = intent.getStringExtra("result");
     }
 }
